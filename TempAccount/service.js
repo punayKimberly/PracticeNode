@@ -13,9 +13,9 @@ var http = require('http'),
 
 var sqlConn = require('tedious').Connection;
 var sqlConfig = {
-    userName: 'sa',
-    password: 'Passw0rd3',
-    server: '216.34.250.160',
+    userName: '',
+    password: '',
+    server: '',
     options:
     {
         database: 'TempAccount'
