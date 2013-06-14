@@ -1,0 +1,29 @@
+!!! 5
+html
+	head
+		title #{data.account_name}
+		script(type='text/javascript', src='http://code.jquery.com/jquery-1.10.1.min.js')
+		script(type='text/javascript').
+			function updateInfo() {
+				console.log("Updating info!!!");
+					$.ajax({
+						type: "POST",
+						url: "/accounts/info/update",
+						contentType:'application/json; charset=utf-8',
+						data: JSON.stringify({ "account_id" : document.getElementById('accountID').value, 
+								"email" : document.getElementById('email').value, 
+								"accountName" : document.getElementById('accountName').value }),
+						success: function(){alert("Update Success");}
+					});
+				}
+	body
+		div
+			div
+				label Name:
+				input(type = text, id = 'accountName', name = 'accountName', value = data.account_name)
+				input(type = 'hidden', id = 'accountID', name = 'accountID', value = data.account_id)
+			div
+				label Email:
+				input(type = text, id = 'email', name = 'email', value = data.account_email)
+			div(onClick="updateInfo()")
+				label Submit

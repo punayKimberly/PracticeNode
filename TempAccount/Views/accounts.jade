@@ -1,0 +1,18 @@
+!!! 5
+html
+	head
+		title Accounts
+		script(type='text/javascript', src='http://code.jquery.com/jquery-1.10.1.min.js')
+		
+	body
+		div
+			ul
+				for element in data
+					li(id = element.account_id).account_name
+						label #{element.account_name}
+					li.account_email
+						label #{element.account_email}
+					a(href = '/accounts/info/#{element.account_id}', id = element.account_id).edit
+						img(src = 'resources/edit.png', alt='Edit Account')
+					a(href = '/accounts/password/#{element.account_id}').password	
+						img(src = 'resources/changePass.png', alt='Change Password')

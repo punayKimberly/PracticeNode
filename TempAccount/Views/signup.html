@@ -1,0 +1,32 @@
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.10.1.min.js'></script>
+<form id ="signupform" action="/signup" method="post">
+    <div>
+        <label>Name:</label>
+        <input type="text" id="accountName" name="accountName"/>
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="text" id="email" name="email"/>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" id="password" name="password"/>
+    </div>
+    <div>
+        <input onclick="document.getElementById('signupform').submit()" type="submit" value="Sign Up"/>
+    </div>
+
+</form>
+
+	<script type="text/javascript">
+	$.ajax({
+		type: "POST",
+		url: "signup",
+		contentType:'application/json; charset=utf-8',
+		data: JSON.stringify("password" : document.getElementById('password').value, 
+								"email" : document.getElementById('email').value, 
+								"accountName" : document.getElementById('accountName').value ),
+		success: function(){alert("done");}
+	});
+	</script>
+

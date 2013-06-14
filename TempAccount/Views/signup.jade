@@ -1,0 +1,31 @@
+!!! 5
+html
+	head
+		script(type='text/javascript', src='http://code.jquery.com/jquery-1.10.1.min.js')
+		script(type='text/javascript').
+			function ajaxCaller() {
+				console.log("signup!!!");
+					$.ajax({
+						type: "POST",
+						url: "signup",
+						contentType:'application/json; charset=utf-8',
+						data: JSON.stringify({"password" : document.getElementById('password').value,
+								"email" : document.getElementById('email').value, 
+								"accountName" : document.getElementById('accountName').value }),
+						success: function(){alert("done");}
+					});
+				}
+		title Client Account
+	body
+		form(method='post', action='/signup/', id = 'signupform')
+			div
+				label Name:
+				input(type = text, id = 'accountName', name = 'accountName' )
+			div
+				label Email:
+				input(type = text, id = 'email', name = 'email' )
+			div
+				label Password:
+				input(type = text, id = 'password', name = 'password' )
+			div(onClick="ajaxCaller()")
+				label Submit
